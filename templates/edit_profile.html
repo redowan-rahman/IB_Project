@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'edit_profile.css' %}">
+</head>
+<body style="background: linear-gradient(135deg, #1c1f3a, #2e335c);">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}"> Logout </a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="edit-profile-form">
+        <h2>Edit Profile</h2>
+        <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}  
+            <div class="button-container">
+                <button class="button" type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

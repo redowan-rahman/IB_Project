@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Progress Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <hr>    
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'logout' %}">LogOut</a>
+        <hr>
+    </div>
+    <div class="content">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}">LogOut</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h1>Gym Trainer Services - Online Training Videos</h1>
+            <hr>
+            <div class="video-section" style="margin-top:60px;">
+                <h2>Beginner</h2>
+                <hr>
+                <div class="video-grid">
+                    <video controls>
+                        <source src="path_to_beginner_video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_beginner_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_beginner_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>Intermediate</h2>
+                <hr>
+                <div class="video-grid">
+                    <video controls>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_intermediate_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_intermediate_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>Advanced</h2>
+                <hr>
+                <div class="video-grid">
+                    <video controls>
+                        <source src="path_to_advanced_video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_advanced_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls>
+                        <source src="path_to_advanced_video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

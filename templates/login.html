@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body style="background: linear-gradient(135deg, #1c1f3a, #2e335c);">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}"> Logout </a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <form id="login", method="POST" class="input-group">
+            <h2>Login</h2>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Login</button>
+            <p>Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+        </form>
+    </div>
+</body>
+</html>

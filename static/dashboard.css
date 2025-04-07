@@ -1,0 +1,76 @@
+body { 
+    font-family: Arial, sans-serif; 
+}
+.container { 
+    width: 80%; margin: auto; 
+}
+.video { 
+    background: #f0f0f0; padding: 10px; margin-top: 10px; 
+}
+.progress { 
+    width: 100%; background: #ddd; 
+}
+.progress-bar { 
+    height: 20px; background: #06c; 
+}
+h1, h2 {
+    color: white;
+}
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+.video-section {
+    margin-bottom: 20px;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+video {
+    width: 250px; 
+    height: 140px; 
+    margin: 10px;
+}
+
+.sidebar {
+    height: 100vh; 
+    width: 250px; 
+    position: fixed; 
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #333; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+}
+.sidebar a {
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+.content {
+    margin-left: 250px; 
+    flex-grow: 1;
+    background: linear-gradient(135deg, #1c235d, #1c1f3a);
+    color: white;
+    min-height: 100vh;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px; 
+    }
+    .sidebar a {
+        font-size: 12px;
+    }
+    .content {
+        margin-left: 100px; 
+    }
+}

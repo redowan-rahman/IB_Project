@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+</head>
+<body style="background: linear-gradient(135deg, #070c3d, #2e335c);">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'logout' %}">LogOut</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="profile-container">
+        <div class="profile-info">
+            <div class="profile-header" style="padding-bottom: 40px;">
+                <img src="{{ profile.profile_image.url }}" alt="User Profile Picture" class="profile-picture">
+            </div>
+            <h1>Redowan Rahman</h1>
+            <p>Occupation: {{profile.job}}</p>
+            <div class="profile-details">
+                <h2>About Me</h2>
+                <p>{{ profile.about }}</p>
+                <h2>Contact Information</h2>
+                <p>Email: {{ profile.user.email }}</p>
+                <p>Phone: {{ profile.phone }}</p>
+            </div>
+            <div class="button-container">
+                <a href="{% url 'edit_profile' %}">Update Profile</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

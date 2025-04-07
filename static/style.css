@@ -1,0 +1,125 @@
+body, h1, p, h2, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+section h1{
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.form-container {
+    background: rgb(63, 70, 90);
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    color: white;
+    margin-top: 40px;
+    border-radius: 15px;
+    border-style: groove;
+    box-shadow: 20px 12px 50px rgba(20, 114, 155, 0.2);
+    width: 400px;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input, button {
+    padding: 5px;
+    margin-top: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+button {
+    padding: 12px;
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #4a54e1;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #5c67f2;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+

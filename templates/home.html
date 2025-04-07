@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fitness Buddy</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <style>
+        #home {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{% static 'images/theme1.jpg' %}');             
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            font-size: 20px;
+            padding: 12%; 
+        }
+
+        .bg{
+            background: linear-gradient(135deg, #1c1f3a, #2e335c);
+        }
+
+        #services {
+            background: linear-gradient(135deg, #2e335c, #1c1f3a);
+            color: #dcd4d2;
+            text-align: center;
+        }
+
+        #services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            color: #e91e63; 
+            text-transform: uppercase;
+        }
+
+        .service {
+            background-color: #222;
+            border-left: 5px solid rgb(155, 159, 212);
+            margin: 20px;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .service:hover {
+            transform: scale(1.03);
+        }
+
+        .service h3 {
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .service p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* reviews */
+        .testimonials {
+            background: linear-gradient(135deg, #1c1f3a, #2e335c);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #e91e63;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-blockquote {
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid #e91e63;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+    </style>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                        <li><a href="{% url 'logout' %}"> Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <section id="home">
+            <h1 style="font-size: 36px; color: #e91e63;">Welcome to Fitness Buddy</h1>
+            <p>I will help you transform your body. My name is Redowan Rahman and I have been training for 5 years now.</p>
+        </section>
+
+        <!-- About Me Section -->
+        <div class="bg">
+            <h2 style="text-align: center; padding-top: 10px; font-size: 36px; color: #e91e63;">About Me</h2>
+            <div style="display: flex; align-items: center; height: 300px;">
+                <img src="{% static 'images/myphoto.jpg' %} " alt="Description" style="width: 300px; height: 300px; object-fit: cover; margin-left: 10px; margin-right: 20px; margin-bottom: 50px;">
+                
+                <p style="font-size: 24px; color: white;">Hello! I'm Redowan Rahman, a certified personal trainer with over 6 years of experience helping people achieve their fitness goals. Passionate about transforming lives, I specialize in weight loss, muscle gain, and nutrition.
+                Whether you're looking to improve your health or compete at your best, I can tailor a fitness plan that's right for you.</p>
+            </div>
+        </div>
+
+        <!-- Services Offered -->
+        <section id="services">
+            <h2>Services Offered</h2>
+            <div class="service">
+                <h3>Personal Training</h3>
+                <p>One-on-one sessions tailored to your goals and fitness level.</p>
+            </div>
+            <div class="service">
+                <h3>Group Classes</h3>
+                <p>Engage in high-energy classes that motivate and challenge you alongside peers.</p>
+            </div>
+            <div class="service">
+                <h3>Online Coaching</h3>
+                <p>Get custom workout and nutrition plans, and track your progress online.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h2>What My Clients Say</h2>
+            <blockquote class="testimonials-blockquote">"John's training methods have completely transformed my approach to fitness. I've never felt better!" - Jane Doe</blockquote>
+            <blockquote class="testimonials-blockquote">"Thanks to John, I was able to achieve my marathon dream with a personal best time!" - Mark Smith</blockquote>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Copyright © 2025 by Redowan Rahman. All rights reserved.</p>
+            <p>Contact info: redowanudoy143@gmail.com</p>
+        </footer>
+    </body>
+</html>
