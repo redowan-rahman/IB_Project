@@ -4,7 +4,7 @@ from django.contrib.auth import views as authentication_views
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-import re
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
