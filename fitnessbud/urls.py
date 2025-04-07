@@ -9,4 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
     path('', include('users.urls')), # inter mapping
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + re_path(r'^media/(?P<path>.*)$', serve, {
+        'document_root': settings.MEDIA_ROOT,
+    }),
