@@ -13,7 +13,14 @@ def register(request):
         if request.method == 'POST':
             form = RegisterForm(request.POST)
             if form.is_valid():
-                form.save()
+                user = form.save(commit=False)
+
+                user.first_name = form.cleaned_data.get('firstname')
+                user.last_name = form.cleaned_data.get('lastname')
+                user.email = form.cleaned_data.get('email')
+
+                user.save() 
+
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'Welcome {username} to Fitness Buddy')
                 return redirect('login')
