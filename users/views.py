@@ -50,8 +50,7 @@ def logoutUser(request):
 
 @login_required(login_url='dashboard')
 def dashboard(request):
-    videos = Video.objects.all()
-    return render(request, 'dashboard.html', {'videos': videos})
+    return render(request, 'dashboard.html')
 
 @login_required
 def edit_profile(request):
