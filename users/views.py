@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterForm
-from .models import Profile
-from .forms import ProfileForm
+from users.models import RegisterForm
+from users.models import Profile
+from users.models import ProfileForm
 
 def register(request):
     if request.user.is_authenticated:
