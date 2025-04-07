@@ -38,7 +38,7 @@
                     <img src="{% static 'images/theme1.jpg' %}" alt="User Profile Picture" class="profile-picture">
                 </div>
             {% endif %}
-            <h1>Redowan Rahman</h1>
+            <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
             <p>Occupation: {{profile.job}}</p>
             <div class="profile-details">
                 <h2>About Me</h2>
