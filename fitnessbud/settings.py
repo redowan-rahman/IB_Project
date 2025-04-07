@@ -143,7 +143,7 @@ STATIC_ROOT = BASE_DIR / "static"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-MEDIA_ROOT = Path('/var/media/')
+MEDIA_ROOT = '/var/media/'
 MEDIA_URL = '/media/'
 
 # Default primary key field type
