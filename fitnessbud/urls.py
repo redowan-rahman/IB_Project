@@ -11,6 +11,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
     path('', include('users.urls')), # inter mapping
-] + re_path(r'^media/(?P<path>.*)$', serve, {
+]
+
+urlpatterns += [
+    re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     }),
+]
