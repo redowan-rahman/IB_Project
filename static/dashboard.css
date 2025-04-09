@@ -69,7 +69,7 @@ h1, h2 {
     margin-top: 3px;
     font-weight: bold;
     color: white; 
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .video-wrapper iframe,
@@ -79,6 +79,49 @@ h1, h2 {
     border: none;
     display: block;
     object-fit: cover;
+}
+
+.form-container {
+    background: rgb(63, 70, 90);
+    padding-left: 80px;
+    padding-right: 80px;
+    color: white;
+    margin-top: 40px;
+    border-radius: 15px;
+    border-style: groove;
+    box-shadow: 20px 12px 50px rgba(20, 114, 155, 0.2);
+    width: 400px;
+    height: 700px;
+}
+
+form input[type="text"],form input[type="email"],form input[type="date"],form input[type="time"],form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+button {
+    padding: 12px;
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
