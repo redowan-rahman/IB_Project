@@ -59,12 +59,12 @@ def logoutUser(request):
 
 @login_required(login_url='dashboard')
 def dashboard(request):
-    appointment = Appointment.objects.order_by('-date', '-time').first()
+    appointment = Appointment.objects.filter(user=request.user).order_by('-date', '-time').first()
     return render(request, 'dashboard.html', {'appointment': appointment})
 
 @login_required
 def edit_profile(request):
-    profile, created = Profile.objects.get_or_create(user=request.user)  # This ensures the profile is created if it doesn't exist
+    profile, created = Profile.objects.get_or_create(user=request.user) 
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
@@ -76,14 +76,16 @@ def edit_profile(request):
 
     return render(request, 'edit_profile.html', {'form': form})
 
+@login_required
 def get_appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            form.save()
+            appointment = form.save(commit=False)
+            appointment.user = request.user  # link appointment to current user
+            appointment.save()
             messages.success(request, 'Appointment booked successfully!')
             return redirect('dashboard')
     else:
         form = AppointmentForm()
-
     return render(request, 'appointment.html', {'form': form})
