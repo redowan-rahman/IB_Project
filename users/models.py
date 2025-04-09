@@ -23,10 +23,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['phone', 'about', 'job', 'profile_image']
-        
-from django.db import models
 
 class Appointment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
     name = models.CharField(max_length=100)
     email = models.EmailField()
     date = models.DateField()
