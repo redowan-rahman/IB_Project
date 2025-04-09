@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+{% load static %}  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Progress Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <hr>    
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'get_appointment' %}">Get Appointment</a>
+        <a href="{% url 'logout' %}">LogOut</a>
+        <hr>
+    </div>
+    <div class="content">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}">LogOut</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="form-container">
+            <h1>Book an Appointment</h1>
+            <hr>
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: green;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="id_name">Name:</label><br>
+                    {{ form.name }}
+                </div>
+                <div>
+                    <label for="id_email">Email:</label><br>
+                    {{ form.email }}
+                </div>
+                <div>
+                    <label for="id_date">Date:</label><br>
+                    {{ form.date }}
+                </div>
+                <div>
+                    <label for="id_time">Time:</label><br>
+                    {{ form.time }}
+                </div>
+                <div>
+                    <label for="id_message">Message (Optional):</label><br>
+                    {{ form.message }}
+                </div>
+                <br>
+                <div class="button-container"> 
+                    <button type="submit">Book Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
