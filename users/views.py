@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from users.models import RegisterForm
 from users.models import Profile
 from users.models import ProfileForm
+from .models import Appointment
+from .models import AppointmentForm
 
 def register(request):
     if request.user.is_authenticated:
@@ -57,7 +59,9 @@ def logoutUser(request):
 
 @login_required(login_url='dashboard')
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    appointment = Appointment.objects.order_by('-date', '-time').first()
+    print(appointment.date)
+    return render(request, 'dashboard.html', {'appointment': appointment})
 
 @login_required
 def edit_profile(request):
@@ -72,3 +76,15 @@ def edit_profile(request):
         form = ProfileForm()
 
     return render(request, 'edit_profile.html', {'form': form})
+
+def get_appointment(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Appointment booked successfully!')
+            return redirect('dashboard')
+    else:
+        form = AppointmentForm()
+
+    return render(request, 'appointment.html', {'form': form})
