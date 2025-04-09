@@ -60,7 +60,6 @@ def logoutUser(request):
 @login_required(login_url='dashboard')
 def dashboard(request):
     appointment = Appointment.objects.order_by('-date', '-time').first()
-    print(appointment.date)
     return render(request, 'dashboard.html', {'appointment': appointment})
 
 @login_required
